@@ -1,5 +1,5 @@
 import MeetupItem from './MeetupItem';
-import classes from './MeetupList.module.css';
+import classes from './MeetupList.module.scss';
 
 function MeetupList(props) {
   return (

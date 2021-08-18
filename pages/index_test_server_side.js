@@ -57,9 +57,7 @@ export async function getStaticProps(context) {
 
   // but in this case since it would request to the API which is already being created here, it would be redundant, so we can just call the mongodb directly the same as we are doing for the POST in F:\kiu\Projetos\ReactJS\nextjs\meetup-tuto\pages\api\new-meetup.js
   // Connecting to the cluster
-  const client = await MongoClient.connect(
-    "mongodb+srv://kiyoshi:Teste123@cluster0.ibfql.mongodb.net/base_de_dados_meetups?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.DATABASE_URL);
   const db = client.db();
 
   // Collection is similar to the tables in SQL - I am calling meetups, it will generate this collection if it still doesn't exists; The documents is the same as register (registro) in SQL

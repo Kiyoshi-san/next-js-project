@@ -9,9 +9,7 @@ async function handler(req, res) {
           const data = req.body;
       
           // Connecting to the cluster
-          const client = await MongoClient.connect(
-             "mongodb+srv://kiyoshi:Teste123@cluster0.ibfql.mongodb.net/base_de_dados_meetups?retryWrites=true&w=majority"
-          );
+          const client = await MongoClient.connect(process.env.DATABASE_URL);
           const db = client.db();
       
           // Collection is similar to the tables in SQL - I am calling meetups, it will generate this collection if it still doesn't exists; The documents is the same as register (registro) in SQL
